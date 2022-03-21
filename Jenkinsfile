@@ -1,4 +1,3 @@
-
 pipeline {
 
     parameters {
@@ -27,15 +26,19 @@ pipeline {
                     }
                 }
             }
+        }
   
         stage('Init') {
             steps {
                 sh 'pwd;terraform init'
             }
+        }
+        
         stage('Validate') {
             steps {
                 sh 'pwd;terraform validate'
             }
+        }
         stage('Plan') {
             steps {
                 sh 'pwd;terraform workspace new ${environment}'
@@ -65,9 +68,8 @@ pipeline {
         stage('Apply') {
             steps {
                 sh "pwd;terraform apply -input=false tfplan"
+                }
             }
         }
     }
-
-  }
 }
