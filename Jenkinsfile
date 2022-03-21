@@ -37,6 +37,11 @@ pipeline {
                 sh 'pwd;terraform show -no-color tfplan > tfplan.txt'
             }
         }
+        stage('Validate') {
+            steps {
+                sh 'pwd;terraform validate'
+            }
+        }
         stage('Approval') {
            when {
                not {
