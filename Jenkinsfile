@@ -23,8 +23,7 @@ pipeline {
                         {
                             git "https://github.com/prathap-17/aws_terraform.git"
                         }
-                    }
-                }
+                 }
             }
         }
   
@@ -72,3 +71,4 @@ pipeline {
             }
         }
     }
+}
