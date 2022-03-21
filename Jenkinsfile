@@ -19,6 +19,7 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
+                        echo "inside checkout"
                         dir("terraform")
                         {
                             git "https://github.com/prathap-17/aws_terraform.git"
