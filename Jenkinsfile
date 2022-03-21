@@ -22,15 +22,16 @@ pipeline {
             }
         }
   
-        stage('Init') {
-            steps {
-                sh 'pwd;terraform init'
-            }
-        }
+        
         
         stage('Validate') {
             steps {
                 sh 'pwd;terraform validate'
+            }
+        }
+        stage('Init') {
+            steps {
+                sh 'pwd;terraform init'
             }
         }
         stage('Plan') {
