@@ -3,10 +3,8 @@ variable "region" {
 }
 
 variable "ami_id" {
-  type = "map"
 
-  default = {
-    us-east-1    = "ami-0c02fb55956c7d316"
- "
+  default = "ami-0c02fb55956c7d316"
+
   }
 }
