@@ -27,20 +27,24 @@ pipeline {
                     }
                 }
             }
-
+  
+          stage('Init') {
+            steps {
+                sh 'pwd;terraform init'
+            }
+        stage('Validate') {
+            steps {
+                sh 'pwd;terraform validate'
+            }
         stage('Plan') {
             steps {
-                sh 'pwd;terraform init -input=false'
                 sh 'pwd;terraform workspace new ${environment}'
                 sh 'pwd;terraform workspace select ${environment}'
                 sh "pwd;terraform plan -input=false -out tfplan "
                 sh 'pwd;terraform show -no-color tfplan > tfplan.txt'
             }
         }
-        stage('Validate') {
-            steps {
-                sh 'pwd;terraform validate'
-            }
+      
         }
         stage('Approval') {
            when {
