@@ -28,7 +28,7 @@ pipeline {
                 }
             }
   
-          stage('Init') {
+        stage('Init') {
             steps {
                 sh 'pwd;terraform init'
             }
